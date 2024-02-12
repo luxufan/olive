@@ -78,7 +78,8 @@ add_library(libolive-editor
 set_target_properties(libolive-editor PROPERTIES PREFIX "")
 
 # Add application
-add_executable(olive-editor
+list(APPEND TEST_TARGETS solc)
+llvm_multisource(olive-editor
   main.cpp
   $<TARGET_OBJECTS:libolive-editor>
   $<TARGET_OBJECTS:olive-version-obj>
